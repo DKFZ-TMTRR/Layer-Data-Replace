@@ -5,7 +5,7 @@
 [![Python Version](https://img.shields.io/pypi/pyversions/Layer-Data-Replace.svg?color=green)](https://python.org)
 
 
-A Plugin in order to replace parts of the data of a layer by another one.
+A napari plugin in order to replace parts of the data of a layer by another one.
 
 ----------------------------------
 

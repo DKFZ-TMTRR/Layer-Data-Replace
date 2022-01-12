@@ -22,20 +22,20 @@ with open('requirements.txt') as f:
 
 
 # https://github.com/pypa/setuptools_scm
-#use_scm = {"write_to": "Layer_Data_Replace/_version.py"}
+use_scm = {"write_to": "Layer_Data_Replace/_version.py"}
 
 setup(
     name='Layer-Data-Replace',
     author='Marc Boucsein, Robin Koch',
     license='BSD-3',
-    #url='https://github.com/MBPhys/Layer-Data-Replace',
-    description='A Plugin in order to replace parts of the data of a layer by another one',
+    url='https://github.com/MBPhys/Layer-Data-Replace',
+    description='A napari plugin in order to replace parts of the data of a layer by another one',
     long_description=read('README.md'),
     long_description_content_type='text/markdown',
     packages=find_packages(),
     python_requires='>=3.7',
     install_requires=requirements,
-    #use_scm_version=use_scm,
+    use_scm_version=use_scm,
     setup_requires=['setuptools_scm'],
     classifiers=[
         'Development Status :: 4 - Beta',
