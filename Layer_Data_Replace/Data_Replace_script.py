@@ -63,9 +63,9 @@ def Replace(viewer: 'napari.viewer.Viewer', layer_choice: str, Line_Edit_1: str,
            if  Epsilon is not None and (isinstance(Epsilon, float) or isinstance(Epsilon, int)):
                 Epsilon_value=Epsilon
            else:
-                #Epsilon_value=0.005
-                print('Epsilon is not a integer or a float. Therefore Epsilon are set to 0.005 automatically')
-                return 
+                Epsilon_value=0.005
+                print('Epsilon is not an integer or a float. Therefore Epsilon is set to 0.005 automatically')
+                #return 
            
            from napari.qt import thread_worker
            future: Future[LayerDataTuple] = Future()
@@ -124,7 +124,7 @@ def Replace(viewer: 'napari.viewer.Viewer', layer_choice: str, Line_Edit_1: str,
                      
                   img_result=img_2.copy()   
                   img_result[img_1!=0]=img_1[img_1!=0]
-                  Layer_tuple= (da.from_array(img_result), {'name': img_1_name+'_'+img_2_name})
+                  Layer_tuple= (img_result, {'name': img_1_name+'_'+img_2_name})
                   return Layer_tuple
               
                if layer_choice=='All Layers [prefix]': 
@@ -144,7 +144,7 @@ def Replace(viewer: 'napari.viewer.Viewer', layer_choice: str, Line_Edit_1: str,
                      
                       img_result=img_2.copy()   
                       img_result[img_1!=0]=img_1[img_1!=0]
-                      Layer_tuple= (da.from_array(img_result), {'name': img_1_name+'_'+img_2_name})
+                      Layer_tuple= (img_result, {'name': img_1_name+'_'+img_2_name})
                       layer_list.append( Layer_tuple)  
                   return layer_list
               
@@ -165,7 +165,7 @@ def Replace(viewer: 'napari.viewer.Viewer', layer_choice: str, Line_Edit_1: str,
                      
                       img_result=img_2.copy()   
                       img_result[img_1!=0]=img_1[img_1!=0]
-                      Layer_tuple= (da.from_array(img_result), {'name': img_1_name+'_'+img_2_name})
+                      Layer_tuple= (img_result, {'name': img_1_name+'_'+img_2_name})
                       layer_list.append(Layer_tuple)  
                   return layer_list  
               
