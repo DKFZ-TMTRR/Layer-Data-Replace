@@ -35,11 +35,11 @@ def on_init(widget):
     def update_widget(event):
         if widget.layer_choice.value=='All Layers [prefix]':
            for x in ['Line_Edit_1','Line_Edit_2']:
-              setattr(getattr(widget, x), 'label', 'Prefix')  
+              setattr(getattr(widget, x), 'label', 'Prefix:')  
               setattr(getattr(widget, x), 'visible', True)
         elif widget.layer_choice.value=='All Layers [suffix]':
            for x in ['Line_Edit_1','Line_Edit_2']:
-              setattr(getattr(widget, x), 'label', 'Suffix')  
+              setattr(getattr(widget, x), 'label', 'Suffix:')  
               setattr(getattr(widget, x), 'visible', True)      
         else:
            for x in ['Line_Edit_1','Line_Edit_2']: 
@@ -54,9 +54,9 @@ def on_init(widget):
 @magic_factory(widget_init=on_init, layout='horizontal', call_button='Match',
                layer_choice={"widget_type": "RadioButtons", 'label': 'Operation:', 'choices': ['All Layers [prefix]', 'All Layers [suffix]', 'Selected'], 'value': 'Selected',
                 "tooltip": 'Select all layers with given prefix or suffix or select just two layer from the layer list'},
-               Line_Edit_1={"widget_type": "LineEdit", 'label': 'Prefix'},
-               Line_Edit_2={"widget_type": "LineEdit", 'label': 'Prefix'},
-               Epsilon={"widget_type": "LiteralEvalLineEdit", 'value': 0.005 ,'label': 'Background value'}
+               Line_Edit_1={"widget_type": "LineEdit", 'label': 'Prefix:'},
+               Line_Edit_2={"widget_type": "LineEdit", 'label': 'Prefix:'},
+               Epsilon={"widget_type": "LiteralEvalLineEdit", 'value': 0.005 ,'label': 'Background value:', 'tooltip': 'Choose an epsilon corresponding to the image background noise'}
              )
 def Replace(viewer: 'napari.viewer.Viewer', layer_choice: str, Line_Edit_1: str, Line_Edit_2: str, Epsilon: float) -> Future[LayerDataTuple]:
            
